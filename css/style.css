@@ -1,0 +1,83 @@
+/* Basic Styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Make body height fill the viewport */
+  background-image: url("background.png"); /* Path to your image */
+  background-size: contain; /* Ensures the image fits inside the viewport without stretching */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents repeating if the image is smaller */
+  max-width: 1024px; /* Maximum width to prevent stretching */
+  max-height: 1024px; /* Maximum height to prevent stretching */
+  margin: 0 auto; /* Center the content horizontally */
+}
+
+h1 {
+  font-size: 48px; /* Adjust the size of the title */
+  color: #30e8c6; /* Change the title color */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a shadow to the title */
+  margin-top: 20px;
+  font-family: "Arial", sans-serif; /* You can specify any font */
+  letter-spacing: 2px; /* Adjust spacing between the letters */
+}
+
+.board-container {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: transparent; /* Fully transparent background */
+  border-radius: 0px;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: transparent; /* Fully transparent background */
+  border-radius: 10px;
+  border-color: #010101;
+  border-collapse: separate; /* Ensure border-spacing works */
+  border-spacing: 2px; /* Adjust the space between the cells (5px in this case) */
+}
+
+td {
+  width: 40px;
+  height: 40px;
+  border: 0px solid #004e6f;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgb(156, 240, 239);
+  border-radius: 15px;
+}
+
+td.revealed {
+  background-color: white;
+  cursor: default;
+}
+
+td.flagged {
+  background-color: yellow;
+}
+
+.start-button {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #8dcdec;
+  color: rgb(43, 43, 43);
+  border: non10pxe;
+}
+
+button:hover {
+  background-color: #e3f2f5;
+}
