@@ -4,17 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Alien Egg Escape</title>
+    <title>Walking on Eggs</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body onload="onLoad()" onkeyup="onMovePacman(event)">
-    <h1>Alien Egg Escape</h1>
+    <h1>Walking on Eggs</h1>
 
     <div class="board-container">
-      <table class="board">
-        <tbody></tbody>
-      </table>
+      <table class="board"></table>
       <!-- <div class="game-over">GAME OVER</div> -->
       <!-- <div class="won">YOU WON</div> -->
     </div>
@@ -23,7 +21,7 @@
     <div class="start-button">
       <button id="gameButton" onclick="newGameButton()">Start New Game</button>
     </div>
-
     <script src="js/game.js"></script>
+    <script src="js/utility.js"></script>
   </body>
 </html>
