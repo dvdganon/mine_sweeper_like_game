@@ -15,12 +15,54 @@ body {
 }
 
 h1 {
-  font-family: Arial, sans-serif;
-  font-size: 48px; /* Adjust the size of the title */
-  color: #f7ef8b; /* Change the title color */
-  margin-top: 100px;
-  font-family: "Arial", sans-serif; /* You can specify any font */
-  letter-spacing: 2px; /* Adjust spacing between the letters */
+  font-family: "Caveat Brush", cursive;
+  font-size: 72px;
+  color: #e74c3c; /* Spooky red color */
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); /* Adds a dramatic shadow */
+}
+
+/* Game container to align everything */
+.game-container {
+  width: 400px; /* Set the same width as the board (adjust based on the board size) */
+  margin: 0 auto;
+}
+
+/* Status bar for counter and timer */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  margin-bottom: 0px;
+}
+
+/* Box for the counter */
+.counter-box {
+  background-color: #e0e0e0;
+  padding: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  width: 45%; /* Adjust based on spacing preference */
+  text-align: center;
+}
+
+/* Box for the timer */
+.timer-box {
+  background-color: #e3e3e3;
+  padding: 7px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  width: 45%; /* Adjust based on spacing preference */
+  text-align: center;
+}
+
+/* Styles for the counter and timer */
+#cell-counter,
+#game-timer {
+  font-size: 20px;
+  color: #333;
 }
 
 .board-container {
@@ -88,15 +130,15 @@ h1 {
   border-radius: 15px;
 }
 
-/* .mine img {
-  width: 40px;
+.mine img {
+  width: 60px;
   height: auto;
-} */
+}
 
-/* .flagged img {
-  width: 40px;
+.flagged img {
+  width: 60px;
   height: auto;
-} */
+}
 
 .flagged {
   width: 40px;
@@ -117,15 +159,24 @@ h1 {
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 8px;
-  background-color: #8dcdec;
-  color: rgb(43, 43, 43);
-  border: non10pxe;
+  background-color: #c1f1f8;
+  padding: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  width: 80%; /* Adjust based on spacing preference */
+  text-align: center;
 }
 
 button:hover {
-  background-color: #e3f2f5;
+  background-color: #cde8f4;
+}
+
+footer {
+  background-color: #ffffff;
+  color: rgb(85, 85, 85);
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }

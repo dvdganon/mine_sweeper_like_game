@@ -4,12 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Walking on Eggs</title>
+    <title>Eggs Bandit</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <body onload="onLoad()" onkeyup="onMovePacman(event)">
-    <h1>Walking on Eggs</h1>
+  <body onload="onLoad()">
+    <h1>Eggs Bandit</h1>
+    <!-- Main container for status bar and board -->
+    <div class="game-container">
+      <div class="status-bar">
+        <div class="counter-box">
+          <h2 id="cell-counter">Left: <span id="counter-value">0</span></h2>
+        </div>
+        <div class="timer-box">
+          <h3 id="game-timer">Time: 0s</h3>
+        </div>
+      </div>
 
     <div class="board-container">
       <table class="board"></table>
@@ -24,4 +34,7 @@
     <script src="js/game.js"></script>
     <script src="js/utility.js"></script>
   </body>
+  <footer>
+    <p>&copy; 2024 Eggs Bandit. All rights reserved. David Ganon.</p>
+  </footer>
 </html>
