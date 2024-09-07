@@ -1,182 +1,193 @@
 /* Basic Styles */
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
   margin: 0;
   padding: 0;
-  height: 100vh; /* Make body height fill the viewport */
-  background-image: url("eggs1.png"); /* Path to your image */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Centers the container horizontally */
+  align-items: center; /* Centers the container vertically */
+  background-color: #f0f0f0; /* Optional background color */
+}
+h1 {
+  /* Text styling */
+  color: rgb(0, 0, 0); /* Text color */
+  font-weight: bold; /* Make text bold */
+  font-family: "Arial", sans-serif; /* Font family */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow to the text */
+  letter-spacing: 1px; /* Add space between letters */
+  text-align: center;
+  font-size: 40px;
+}
+
+.page-container {
+  width: 740px; /* Adjust width based on your game size */
+  height: 1000px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Optional shadow for styling */
+  border-radius: 10px; /* Optional rounded corners */
+}
+
+.game-container {
+  width: 700px; /* Adjust width based on your game size */
+  height: 650px;
+  display: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("img/gen 2 eggs (4).png"); /* Path to your background image */
+
+  background-size: 740px; /* Ensure the image stays within container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent image repeat */
+  background-color: transparent; /* Transparent background */
+  padding: 20px; /* Optional padding */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Optional shadow for styling */
+  border-radius: 0px; /* Optional rounded corners */
+}
+
+.table,
+.board {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0);
+  width: auto;
+  margin: 0 auto;
   background-size: contain; /* Ensures the image fits inside the viewport without stretching */
   background-position: center; /* Centers the background image */
   background-repeat: no-repeat; /* Prevents repeating if the image is smaller */
-  max-width: 1024px; /* Maximum width to prevent stretching */
-  max-height: 1024px; /* Maximum height to prevent stretching */
-  margin: 0 auto; /* Center the content horizontally */
 }
 
-h1 {
-  font-family: "Caveat Brush", cursive;
-  font-size: 72px;
-  color: #e74c3c; /* Spooky red color */
-  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); /* Adds a dramatic shadow */
-}
-
-/* Game container to align everything */
-.game-container {
-  width: 400px; /* Set the same width as the board (adjust based on the board size) */
-  margin: 0 auto;
-}
-
-/* Status bar for counter and timer */
-.status-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  margin-bottom: 0px;
-}
-
-/* Box for the counter */
-.counter-box {
-  background-color: #e0e0e0;
-  padding: 10px;
-  border: 2px solid #ffffff;
-  border-radius: 5px;
-  width: 45%; /* Adjust based on spacing preference */
-  text-align: center;
-}
-
-/* Box for the timer */
-.timer-box {
-  background-color: #e3e3e3;
-  padding: 7px;
-  border: 2px solid #ffffff;
-  border-radius: 5px;
-  width: 45%; /* Adjust based on spacing preference */
-  text-align: center;
-}
-
-/* Styles for the counter and timer */
-#cell-counter,
-#game-timer {
-  font-size: 20px;
-  color: #333;
-}
-
-.board-container {
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-  background-color: transparent; /* Fully transparent background */
-  border-radius: 0px;
-}
-
-.table {
-  border-collapse: collapse;
-  background-color: transparent; /* Fully transparent background */
-  border-radius: 10px;
-  border-color: #010101;
-  border-collapse: separate; /* Ensure border-spacing works */
-  border-spacing: 2px; /* Adjust the space between the cells (5px in this case) */
-}
-
-.board {
-  border-collapse: collapse;
-  background-color: transparent; /* Fully transparent background */
-  border-radius: 10px;
-  border-color: #010101;
-  border-collapse: separate; /* Ensure border-spacing works */
-  border-spacing: 2px; /* Adjust the space between the cells (5px in this case) */
-}
-
-.cell {
-  width: 80px;
-  height: 80px;
-  background-color: rgb(63, 239, 239);
-  text-align: center;
-  vertical-align: middle;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 15px;
-  border: 0px solid #004e6f;
-}
-
-.shown {
-  width: 80px;
-  height: 80px;
-  background-color: rgb(237, 233, 228);
-  text-align: center;
-  vertical-align: middle;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 15px;
-  border: 0px solid #004e6f;
-}
-
-.mine {
-  width: 80px;
-  height: 80px;
-  /* background-image: url("dark_feathers.png"); */
-  background-color: rgb(239, 11, 11);
-  max-width: 80px; /* Maximum width to prevent stretching */
-  max-height: 80px; /* Maximum height to prevent stretching */
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  font-size: 20px;
-  border-radius: 15px;
-}
-
-.mine img {
-  width: 60px;
-  height: auto;
-}
-
-.flagged img {
-  width: 60px;
-  height: auto;
-}
-
+.cell,
+.shown,
+.mine,
 .flagged {
   width: 40px;
   height: 40px;
-  border: 0px solid #004e6f;
   text-align: center;
   vertical-align: middle;
-  font-size: 20px;
   cursor: pointer;
-  background-color: rgb(156, 240, 239);
-  border-radius: 15px;
+  border-radius: 20px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0);
+
+  /* Text styling */
+  color: rgb(0, 0, 0); /* Text color */
+  font-weight: bold; /* Make text bold */
+  font-family: "Arial", sans-serif; /* Font family */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
+  letter-spacing: 1px; /* Add space between letters */
+  text-align: center;
+  font-size: 25px;
 }
 
+.cell {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.cell:not(.shown):not(.mine):not(.flagged):hover {
+  background-color: rgba(243, 215, 10, 0.9);
+  /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3); */
+}
+
+.shown {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.shown-with-count {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mine {
+  background-color: rgb(239, 11, 11);
+}
+
+.flagged {
+  background-color: rgb(243, 215, 10);
+}
+
+/* .flagged img,
+.mine img {
+  width: 40px;
+  height: auto;
+} */
+
+/* Status bar for counter, timer, and lives */
+.status-bar,
 .start-button {
-  margin: 20px auto;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 10px; /* Space between the boxes */
+  padding: 0px;
+  background-color: transparent;
+  /* background-color: #ffffff; */
+  border-radius: 0px;
+  width: 700px; /* Full width */
+  margin-bottom: 10px;
+}
+
+.status-bar-2 {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 10px; /* Space between the boxes */
+  padding: 0px;
+  background-color: transparent;
+  position: fixed; /* Fix the position relative to the viewport */
+  top: 850px; /* Adjust the distance from the top of the screen */
+  left: 0; /* Align with the left side */
+  width: 100%; /* Make it take the full width of the viewport */
+  z-index: 1000; /* Ensure it's on top of other elements */
+  background-color: transparent;
+}
+
+.button-class {
+  background-color: #ffffff;
+  padding: 7px;
+  border: 2px solid rgb(241, 215, 10); /* Added "solid" to specify the border style */
+  border-radius: 20px;
+  height: 50px;
+  width: 100px; /* Reduce width so they fit nicely in one line */
+  text-align: center;
+
+  /* Text styling */
+  color: rgb(0, 0, 0); /* Text color */
+  font-weight: bold; /* Make text bold */
+  font-family: "Arial", sans-serif; /* Font family */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
+  letter-spacing: 1px; /* Add space between letters */
+  text-align: center;
+  font-size: 18px;
 }
 
 button {
-  background-color: #c1f1f8;
-  padding: 20px;
-  border: 2px solid #ffffff;
-  border-radius: 5px;
-  width: 80%; /* Adjust based on spacing preference */
-  text-align: center;
-}
-
-button:hover {
-  background-color: #cde8f4;
-}
-
-footer {
   background-color: #ffffff;
-  color: rgb(85, 85, 85);
-  padding: 20px;
+  padding: 7px;
+  border: 2px transparent; /* Added "solid" to specify the border style */
+  border-radius: 20px;
+  height: 50px;
+  width: 100px; /* Reduce width so they fit nicely in one line */
   text-align: center;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+
+  /* Text styling */
+  color: rgb(0, 0, 0); /* Text color */
+  font-weight: bold; /* Make text bold */
+  font-family: "Arial", sans-serif; /* Font family */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
+  letter-spacing: 1px; /* Add space between letters */
+  text-align: center;
+  font-size: 18px;
+}
+
+.button-class:hover {
+  background-color: #fbdc42;
+}
+footer {
+  /* Text styling */
+  color: rgb(243, 215, 10); /* Text color */
+  font-weight: bold; /* Make text bold */
+  font-family: "Arial", sans-serif; /* Font family */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
+  letter-spacing: 1px; /* Add space between letters */
+  text-align: center;
+  font-size: 15px;
+  margin: 0 auto;
 }
