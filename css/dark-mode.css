@@ -1,0 +1,200 @@
+/* Basic Styles */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Centers the container horizontally */
+  align-items: center; /* Centers the container vertically */
+  background-color: #2b2b2b; /* Optional background color */
+}
+h1 {
+  /* Text styling */
+  color: rgb(246, 215, 10); /* Text color */
+  font-weight: bold; /* Make text bold */
+  font-family: "Arial", sans-serif; /* Font family */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow to the text */
+  letter-spacing: 1px; /* Add space between letters */
+  text-align: center;
+  font-size: 40px;
+}
+
+.page-container {
+  width: 740px; /* Adjust width based on your game size */
+  height: 1000px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Optional shadow for styling */
+  border-radius: 10px; /* Optional rounded corners */
+}
+
+.game-container {
+  width: 700px; /* Adjust width based on your game size */
+  height: 650px;
+  display: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("img/eggs back ground dark mode.png"); /* Path to your background image */
+
+  background-size: 740px; /* Ensure the image stays within container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent image repeat */
+  background-color: transparent; /* Transparent background */
+  padding: 20px; /* Optional padding */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Optional shadow for styling */
+  border-radius: 0px; /* Optional rounded corners */
+}
+
+.table,
+.board {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0);
+  width: auto;
+  margin: 0 auto;
+  background-size: contain; /* Ensures the image fits inside the viewport without stretching */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents repeating if the image is smaller */
+}
+
+.cell,
+.shown,
+.mine,
+.flagged {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0px 3px 3px rgba(159, 159, 159, 0);
+
+  /* Text styling */
+  color: rgb(216, 216, 216); /* Text color */
+  font-weight: bold; /* Make text bold */
+  font-family: "Arial", sans-serif; /* Font family */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
+  letter-spacing: 1px; /* Add space between letters */
+  text-align: center;
+  font-size: 25px;
+}
+
+.cell {
+  background-color: rgba(183, 183, 183, 0.9);
+}
+
+.cell:not(.shown):not(.mine):not(.flagged):hover {
+  background-color: rgba(243, 215, 10, 0.9);
+  /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3); */
+}
+
+.shown {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.shown-with-count {
+  background-color: rgba(146, 146, 146, 0.5);
+}
+
+.mine {
+  background-color: rgb(239, 11, 11);
+}
+
+.flagged {
+  background-color: rgb(243, 215, 10);
+}
+
+/* .flagged img,
+.mine img {
+  width: 40px;
+  height: auto;
+} */
+
+/* Status bar for counter, timer, and lives */
+.status-bar,
+.start-button {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 10px; /* Space between the boxes */
+  padding: 0px;
+  background-color: transparent;
+  /* background-color: #ffffff; */
+  border-radius: 0px;
+  width: 700px; /* Full width */
+  margin-bottom: 10px;
+}
+
+.status-bar-2 {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 10px; /* Space between the boxes */
+  padding: 0px;
+  background-color: transparent;
+  position: flex; /* Fix the position relative to the viewport */
+  top: 850px; /* Adjust the distance from the top of the screen */
+  left: 0; /* Align with the left side */
+  width: 100%; /* Make it take the full width of the viewport */
+  z-index: 1000; /* Ensure it's on top of other elements */
+  background-color: transparent;
+}
+
+.button-class {
+  background-color: #a6a6a6;
+  padding: 7px;
+  border: 2px solid rgb(241, 215, 10); /* Added "solid" to specify the border style */
+  border-radius: 20px;
+  height: 50px;
+  width: 100px; /* Reduce width so they fit nicely in one line */
+  text-align: center;
+
+  /* Text styling */
+  color: rgb(226, 226, 226); /* Text color */
+  font-weight: bold; /* Make text bold */
+  font-family: "Arial", sans-serif; /* Font family */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
+  letter-spacing: 1px; /* Add space between letters */
+  text-align: center;
+  font-size: 18px;
+}
+
+button {
+  background-color: #3f3f3f;
+  padding: 7px;
+  border: 2px transparent; /* Added "solid" to specify the border style */
+  border-radius: 20px;
+  height: 50px;
+  width: 100px; /* Reduce width so they fit nicely in one line */
+  text-align: center;
+
+  /* Text styling */
+  color: rgb(230, 230, 230); /* Text color */
+  font-weight: bold; /* Make text bold */
+  font-family: "Arial", sans-serif; /* Font family */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
+  letter-spacing: 1px; /* Add space between letters */
+  text-align: center;
+  font-size: 18px;
+}
+
+.button-class:hover {
+  background-color: #fbdc42;
+}
+
+footer {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 10px; /* Space between the buttons */
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 15px;
+  width: 100%;
+  position: fixed; /* Fixed position relative to the viewport */
+  bottom: 20px; /* Adjust the distance from the top of the screen */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center the element based on its width */
+  z-index: 1000; /* Make sure it's on top of other elements */
+  color: rgb(243, 215, 10); /* Text color */
+  font-family: "Arial", sans-serif; /* Font family */
+}

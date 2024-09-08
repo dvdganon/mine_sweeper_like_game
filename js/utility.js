@@ -7,6 +7,11 @@ const loseSong = new Audio("sound/sad-meow-song.mp3");
 const wow = new Audio("sound/anime-wow-sound-effect.mp3");
 const scream = new Audio("sound/snag-scream.mp3");
 const starMan = new Audio("sound/starman-superman.mp3");
+const hintSound1 = new Audio("sound/gay-echo.mp3");
+const hintSound2 = new Audio("sound/why-are-you-gay.mp3");
+const darkModeSound = new Audio("sound/hellodarknessmyoldfriend.mp3");
+const lightModeSound = new Audio("sound/shinebright.mp3");
+
 function countNegsFormula(board, rowIdx, colIdx) {
   var count = 0;
   for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
@@ -50,12 +55,53 @@ function activateHint(board, rowIdx, colIdx, hintId) {
   document.getElementById(hintId).innerText = ``;
 }
 
+//show the hint cell with blinking effect
 function activateRandomHint(gRandomSafeCell) {
+  blockPress = true;
   renderCellHint(gRandomSafeCell, EMPTY);
   setTimeout(() => {
     renderCellReverseHint(gRandomSafeCell, EMPTY);
-  }, 1000);
-  renderRandomHint();
+  }, 2000);
+
+  setTimeout(() => {
+    renderCellHint(gRandomSafeCell, EMPTY);
+  }, 2250);
+  setTimeout(() => {
+    renderCellReverseHint(gRandomSafeCell, EMPTY);
+  }, 2500);
+
+  setTimeout(() => {
+    renderCellHint(gRandomSafeCell, EMPTY);
+  }, 2750);
+  setTimeout(() => {
+    renderCellReverseHint(gRandomSafeCell, EMPTY);
+  }, 3000);
+
+  setTimeout(() => {
+    renderCellHint(gRandomSafeCell, EMPTY);
+  }, 3250);
+  setTimeout(() => {
+    renderCellReverseHint(gRandomSafeCell, EMPTY);
+  }, 3500);
+
+  setTimeout(() => {
+    renderCellHint(gRandomSafeCell, EMPTY);
+  }, 3750);
+  setTimeout(() => {
+    renderCellReverseHint(gRandomSafeCell, EMPTY);
+  }, 4000);
+
+  setTimeout(() => {
+    renderCellHint(gRandomSafeCell, EMPTY);
+  }, 4250);
+  setTimeout(() => {
+    renderCellReverseHint(gRandomSafeCell, EMPTY);
+  }, 4500);
+  //give the user the ebility to press the cell. and render the hint button
+  setTimeout(() => {
+    blockPress = false;
+    renderRandomHint();
+  }, 4750);
 }
 
 function renderCell(location, value) {
@@ -201,6 +247,7 @@ function renderRandomHint() {
 function redo() {
   // If no history exists, return early
   if (gGameHistory.length === 0) return;
+  if (!isTimerRunning) return;
 
   var cell = gGameHistory.pop();
 
@@ -211,4 +258,28 @@ function redo() {
   renderCounter();
   // console.log(location);
   // console.log(gGameHistory);
+}
+
+// Function to toggle dark mode
+function toggleTheme() {
+  const stylesheet = document.getElementById("theme-stylesheet");
+
+  if (isDarkMode) {
+    // Switch back to light mode
+    stylesheet.href = "css/style.css";
+    isDarkMode = false;
+    darkModeSound.pause();
+    darkModeSound.currentTime = 0;
+
+    lightModeSound.play();
+    document.getElementById("toggle-theme").innerText = "🌙";
+  } else {
+    // Switch to dark mode
+    stylesheet.href = "css/dark-mode.css";
+    isDarkMode = true;
+    lightModeSound.pause();
+    lightModeSound.currentTime = 0;
+    darkModeSound.play();
+    document.getElementById("toggle-theme").innerText = "☀️";
+  }
 }

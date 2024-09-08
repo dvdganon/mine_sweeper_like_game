@@ -1,9 +1,11 @@
 "use strict";
 
 //timer
+var isDarkMode = false;
 var timerInterval;
 var elapsedSeconds = 0;
 var isTimerRunning = false;
+var blockPress = false;
 // Constants and Variables
 var EGG = "🍳";
 var EMPTY = "";
@@ -90,7 +92,7 @@ function buildBoard() {
 function addMines(board, mineCount, firstI, firstJ) {
   const size = board.length;
   happy.play();
-  happy.volume = 0.25;
+  happy.volume = 0.2;
   // Place the mines randomly
   var placedMines = 0;
   while (placedMines < mineCount) {
@@ -155,6 +157,7 @@ function renderBoard(board) {
 
 function cellClicked(i, j) {
   const cell = gBoard[i][j];
+  if (blockPress) return;
   if (cell.isShown || cell.isFlagged) return;
   if (gCounter === ChosenLevel.SIZE ** 2 && !isTimerRunning) {
     // first click on the board generate mines (when the counter is showing maximum number only)
@@ -258,15 +261,30 @@ function checkLose() {
 function hintButtonPressed(hintId) {
   if (!isTimerRunning && gCounter !== ChosenLevel.SIZE ** 2) return;
   if (gCounter === ChosenLevel.SIZE ** 2) return;
-  if (hintId === "hint1" && hint1) return;
-  if (hintId === "hint2" && hint2) return;
-  if (hintId === "hint3" && hint3) return;
-  if (hintId === "hint1" && !hint1) hint1 = true;
-  if (hintId === "hint2" && !hint2) hint2 = true;
-  if (hintId === "hint3" && !hint3) hint3 = true;
+  if (
+    (hintId === "hint1" && hint1) ||
+    (hintId === "hint2" && hint2) ||
+    (hintId === "hint3" && hint3)
+  ) {
+    soundNoHelp.play();
+    return;
+  }
+
+  if (hintId === "hint1" && !hint1) {
+    hint1 = true;
+    hintSound1.play();
+  }
+  if (hintId === "hint2" && !hint2) {
+    hint2 = true;
+    hintSound2.play();
+  }
+  if (hintId === "hint3" && !hint3) {
+    hint3 = true;
+    hintSound1.play();
+  }
   gHintId = hintId;
   gActiveHint = true;
-  document.getElementById(hintId).innerText = `SOS Active`;
+  document.getElementById(hintId).innerText = `👆`;
 }
 
 function randomHint() {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Eggs Benedict</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link id="theme-stylesheet" rel="stylesheet" href="css/style.css" />
   </head>
 
   <body onload="onLoad()">
@@ -78,16 +78,28 @@
             🛟
             <span id="random-hint-txt">3</span>
           </button>
-          <button class="button-class" id="button2" onclick="redo()">👈</button>
+          <button class="button-class" id="redo" onclick="redo()">👈</button>
           <button
             class="button-class"
-            id="button3"
+            id="mega-hint"
             onclick="chooseLevel(2)"
           ></button>
+          <button
+            class="button-class"
+            id="Exterminator"
+            onclick="chooseLevel(2)"
+          ></button>
+          <button
+            class="button-class"
+            id="toggle-theme"
+            onclick="toggleTheme()"
+          >
+            🌙
+          </button>
         </div>
       </div>
       <footer>
-        <p>&copy; 2024 Eggs Bandit. All rights reserved. David Ganon.</p>
+        <p>&copy; 2024 Eggs Benedict. All rights reserved. David Ganon.</p>
       </footer>
     </div>
   </body>

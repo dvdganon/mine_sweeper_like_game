@@ -10,7 +10,7 @@ body {
 }
 h1 {
   /* Text styling */
-  color: rgb(0, 0, 0); /* Text color */
+  color: rgb(246, 215, 10); /* Text color */
   font-weight: bold; /* Make text bold */
   font-family: "Arial", sans-serif; /* Font family */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow to the text */
@@ -33,7 +33,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("img/gen 2 eggs (4).png"); /* Path to your background image */
+  background-image: url("img/eggs back ground.png"); /* Path to your background image */
 
   background-size: 740px; /* Ensure the image stays within container */
   background-position: center; /* Center the background image */
@@ -131,7 +131,7 @@ h1 {
   gap: 10px; /* Space between the boxes */
   padding: 0px;
   background-color: transparent;
-  position: fixed; /* Fix the position relative to the viewport */
+  position: flex; /* Fix the position relative to the viewport */
   top: 850px; /* Adjust the distance from the top of the screen */
   left: 0; /* Align with the left side */
   width: 100%; /* Make it take the full width of the viewport */
@@ -180,14 +180,21 @@ button {
 .button-class:hover {
   background-color: #fbdc42;
 }
+
 footer {
-  /* Text styling */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 10px; /* Space between the buttons */
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 15px;
+  width: 100%;
+  position: fixed; /* Fixed position relative to the viewport */
+  bottom: 20px; /* Adjust the distance from the top of the screen */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center the element based on its width */
+  z-index: 1000; /* Make sure it's on top of other elements */
   color: rgb(243, 215, 10); /* Text color */
-  font-weight: bold; /* Make text bold */
   font-family: "Arial", sans-serif; /* Font family */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
-  letter-spacing: 1px; /* Add space between letters */
-  text-align: center;
-  font-size: 15px;
-  margin: 0 auto;
 }
