@@ -28,6 +28,9 @@ var gActiveHint = false;
 var gRandomHintCount = 3;
 var gRandomSafeCell = [];
 var gGameHistory = [];
+var gMegaHint = false;
+var gMegaArea = [];
+var megaHintDepleted = false;
 
 function onLoad() {
   gGameHistory = [];
@@ -157,6 +160,10 @@ function renderBoard(board) {
 
 function cellClicked(i, j) {
   const cell = gBoard[i][j];
+  if (gMegaHint) {
+    ActivateMegaHint(cell);
+    return;
+  }
   if (blockPress) return;
   if (cell.isShown || cell.isFlagged) return;
   if (gCounter === ChosenLevel.SIZE ** 2 && !isTimerRunning) {
@@ -320,4 +327,50 @@ function randomHint() {
 
   gRandomHintCount--; // Decrement the number of available hints
   activateRandomHint(gRandomSafeCell); // Use the hint
+}
+
+function megaHintPressed() {
+  if (megaHintDepleted) return;
+  if (!isTimerRunning) return;
+  gMegaHint = true;
+  megaHintDepleted = true;
+  console.log("mega-true");
+}
+
+function ActivateMegaHint(cell) {
+  console.log("mega-activated");
+  gMegaArea.push(cell);
+  if (gMegaArea.length === 2) {
+    console.log(gMegaArea);
+    document.getElementById("mega-hint").innerText = ``;
+    /////////////////////////////////////////////////////////
+
+    for (var i = gMegaArea[0].i; i <= gMegaArea[1].i; i++) {
+      for (var j = gMegaArea[0].j; j <= gMegaArea[1].j; j++) {
+        var cell = gBoard[i][j];
+        if (cell.isShown) continue;
+        if (!cell.isMine) renderCellHint({ i, j }, EMPTY);
+        if (cell.isMine) renderCellHint({ i, j }, "🍳");
+      }
+    }
+    ///////////////////////////////////////////////////////////////
+    //return to hide, after 1 sec
+    setTimeout(function () {
+      for (var i = gMegaArea[0].i; i <= gMegaArea[1].i; i++) {
+        for (var j = gMegaArea[0].j; j <= gMegaArea[1].j; j++) {
+          var cell = gBoard[i][j];
+          if (cell.isShown) continue;
+          renderCellReverseHint({ i, j }, EMPTY);
+        }
+      }
+    }, 2000);
+
+    ///////////////////////////////////////////////////////////////
+  } else return;
+  setTimeout(function () {
+    gMegaArea = [];
+    gMegaHint = false;
+
+    console.log("mega-deactivated");
+  }, 3000);
 }

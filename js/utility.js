@@ -238,6 +238,8 @@ function resetHintParameters() {
   document.getElementById("hint2").innerText = `🆘`;
   document.getElementById("hint3").innerText = `🆘`;
   gRandomHintCount = 3;
+  megaHintDepleted = false;
+  document.getElementById("mega-hint").innerText = `🦣🆘`;
 }
 
 function renderRandomHint() {
