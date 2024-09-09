@@ -268,7 +268,7 @@ function toggleTheme() {
 
   if (isDarkMode) {
     // Switch back to light mode
-    stylesheet.href = "css/style.css";
+    stylesheet.href = "css/style2.css";
     isDarkMode = false;
     darkModeSound.pause();
     darkModeSound.currentTime = 0;
