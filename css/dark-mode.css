@@ -40,14 +40,14 @@ h1 {
   background-color: transparent;
   color: rgb(243, 215, 10); /* Text color */
   z-index: 10;
-  font-size: 7vw;
+  font-size: 8vw;
 }
 
 .board-container {
   margin: 20;
   padding: 20;
-  height: 80vw;
-  width: 80vw;
+  height: 90vw;
+  width: 90vw;
   max-width: 1000px;
   max-height: 1000px;
   display: flex;
@@ -153,7 +153,7 @@ td {
 }
 
 .cell {
-  background-color: rgba(218, 218, 218, 0.9);
+  background-color: rgba(228, 228, 228, 0.9);
 }
 
 .cell:not(.shown):not(.mine):not(.flagged):hover {
@@ -216,7 +216,7 @@ td {
 }
 
 .button-class {
-  background-color: #d4d4d4;
+  background-color: #e7e7e7;
   border: 2px solid rgb(241, 215, 10); /* Added "solid" to specify the border style */
   border-radius: 50%; /* Ensures the button remains circular */
 
@@ -255,7 +255,7 @@ td {
 }
 
 button {
-  background-color: #d6d6d6;
+  background-color: #e6e6e6;
   padding: 7px;
   border: 2px solid rgb(86, 182, 197); /* Added "solid" to specify the border style */
   border-radius: 25px; /* This creates the round shape */
