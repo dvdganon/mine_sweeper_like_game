@@ -9,101 +9,59 @@
   </head>
 
   <body onload="onLoad()">
-    <!-- Main container for status bar, buttons, and board -->
-
-    <div class="page-container">
-      <h1>Eggs Benedict</h1>
-      <div class="game-container">
-        <div class="start-button">
-          <!-- <button
-            class="button-class"
-            id="game-Button"
-            onclick="newGameButton()"
-          >
-            🐣
-          </button> -->
-          <button
-            class="button-class"
-            id="game-Button2"
-            onclick="chooseLevel(1)"
-          >
-            S🥚
-          </button>
-          <button
-            class="button-class"
-            id="game-Button3"
-            onclick="chooseLevel(2)"
-          >
-            M🥚
-          </button>
-          <button
-            class="button-class"
-            id="game-Button4"
-            onclick="chooseLevel(3)"
-          >
-            L🥚
-          </button>
-        </div>
-        <div class="status-bar">
-          <button id="cell-counter">🪺<span id="counter-value">0</span></button>
-          <button id="lives"></button>
-          <button id="game-timer">🍳<span id="timer-value">0</span></button>
-        </div>
-
-        <table class="board"></table>
-        <!-- Buttons are now inside the game-container -->
-        <div class="status-bar-2">
-          <button
-            class="button-class"
-            id="hint1"
-            onclick="hintButtonPressed(id)"
-          >
-            🆘
-          </button>
-          <button
-            class="button-class"
-            id="hint2"
-            onclick="hintButtonPressed(id)"
-          >
-            🆘
-          </button>
-          <button
-            class="button-class"
-            id="hint3"
-            onclick="hintButtonPressed(id)"
-          >
-            🆘
-          </button>
-          <button class="button-class" id="random-hint" onclick="randomHint()">
-            🛟
-            <span id="random-hint-txt">3</span>
-          </button>
-          <button class="button-class" id="redo" onclick="redo()">👈</button>
-          <button
-            class="button-class"
-            id="mega-hint"
-            onclick="megaHintPressed(2)"
-          >
-            🦣🆘
-          </button>
-          <button
-            class="button-class"
-            id="Exterminator"
-            onclick="chooseLevel(2)"
-          ></button>
-          <button
-            class="button-class"
-            id="toggle-theme"
-            onclick="toggleTheme()"
-          >
-            🌙
-          </button>
-        </div>
-      </div>
-      <footer>
-        <p>&copy; 2024 Eggs Benedict. All rights reserved. David Ganon.</p>
-      </footer>
+    <h1>Eggs Benedict</h1>
+    <div class="start-button">
+      <!-- <button
+          class="button-class"
+          id="game-Button"
+          onclick="newGameButton()"
+        >
+          🐣
+        </button> -->
+      <button class="button-class" id="game-Button2" onclick="chooseLevel(1)">
+        S🥚
+      </button>
+      <button class="button-class" id="game-Button3" onclick="chooseLevel(2)">
+        M🥚
+      </button>
+      <button class="button-class" id="game-Button4" onclick="chooseLevel(3)">
+        L🥚
+      </button>
     </div>
+    <div class="status-bar">
+      <button id="cell-counter">🪺<span id="counter-value">0</span></button>
+      <button id="lives"></button>
+      <button id="game-timer">🍳<span id="timer-value">0</span></button>
+    </div>
+    <div class="board-container">
+      <table class="board"></table>
+      <!-- Buttons are now inside the game-container -->
+    </div>
+    <div class="status-bar-2">
+      <button class="button-class" id="hint1" onclick="hintButtonPressed(id)">
+        🆘
+      </button>
+      <button class="button-class" id="hint2" onclick="hintButtonPressed(id)">
+        🆘
+      </button>
+      <button class="button-class" id="hint3" onclick="hintButtonPressed(id)">
+        🆘
+      </button>
+      <button class="button-class" id="random-hint" onclick="randomHint()">
+        🛟
+        <span id="random-hint-txt">3</span>
+      </button>
+      <button class="button-class" id="redo" onclick="redo()">👈</button>
+      <button class="button-class" id="mega-hint" onclick="megaHintPressed(2)">
+        🦣🆘
+      </button>
+      <button class="button-class" id="toggle-theme" onclick="toggleTheme()">
+        🌙
+      </button>
+    </div>
+    <footer>
+      <p>&copy; 2024 Eggs Benedict. All rights reserved. David Ganon.</p>
+    </footer>
   </body>
 
   <script src="js/game.js"></script>

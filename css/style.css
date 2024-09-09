@@ -1,81 +1,164 @@
 /* Basic Styles */
+* {
+  font-family: "Arial", sans-serif; /* Font family */
+  text-align: center;
+}
 body {
   margin: 0;
   padding: 0;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("img/eggs back ground.png"); /* Path to your background image */
+  background-size: cover; /* Cover the entire background */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent image repeat */
+  position: relative; /* Ensure the pseudo-element is positioned relative to the body */
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.6
+  ); /* Semi-transparent white overlay */
+  pointer-events: none; /* Ensure the overlay doesn't block interactions */
+  z-index: 1; /* Make sure it sits above the background image but below any other content */
+}
+
+h1 {
+  padding: 10;
+  display: flex;
+  flex-direction: column;
   justify-content: center; /* Centers the container horizontally */
   align-items: center; /* Centers the container vertically */
-  background-color: #f0f0f0; /* Optional background color */
-}
-h1 {
-  /* Text styling */
-  color: rgb(246, 215, 10); /* Text color */
-  font-weight: bold; /* Make text bold */
-  font-family: "Arial", sans-serif; /* Font family */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow to the text */
-  letter-spacing: 1px; /* Add space between letters */
-  text-align: center;
-  font-size: 40px;
+  background-color: transparent;
+  color: rgb(243, 215, 10); /* Text color */
+  z-index: 10;
+  font-size: 7vw;
 }
 
-.page-container {
-  width: 740px; /* Adjust width based on your game size */
-  height: 1000px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Optional shadow for styling */
-  border-radius: 10px; /* Optional rounded corners */
-}
-
-.game-container {
-  width: 700px; /* Adjust width based on your game size */
-  height: 650px;
-  display: center;
-  flex-direction: column;
+.board-container {
+  margin: 20;
+  padding: 20;
+  height: 70vw;
+  width: 70vw;
+  max-width: 1000px;
+  max-height: 1000px;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
-  background-image: url("img/eggs back ground.png"); /* Path to your background image */
-
-  background-size: 740px; /* Ensure the image stays within container */
+  flex-direction: column;
+  background-image: url("img/eggs back ground.png");
+  background-size: cover;
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent image repeat */
   background-color: transparent; /* Transparent background */
   padding: 20px; /* Optional padding */
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Optional shadow for styling */
-  border-radius: 0px; /* Optional rounded corners */
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for styling */
+  border-radius: 50px; /* Optional rounded corners */
+  z-index: 9;
 }
 
-.table,
-.board {
-  width: 1000px;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0);
-  width: auto;
-  margin: 0 auto;
-  background-size: contain; /* Ensures the image fits inside the viewport without stretching */
-  background-position: center; /* Centers the background image */
-  background-repeat: no-repeat; /* Prevents repeating if the image is smaller */
+.board-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Semi-transparent white overlay */
+  pointer-events: none; /* Ensure the overlay doesn't block interactions */
+  z-index: 2; /* Make sure it sits above the background image but below any other content */
+}
+.board,
+tbody {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure the table takes up the available width */
+  aspect-ratio: 1 / 1; /* Keep the table square */
+
+  display: flex;
+  justify-content: space-between; /* Distribute space evenly between cells */
+  align-items: center; /* Center content vertically */
+  flex-direction: column; /* Stack rows vertically */
+  background-color: rgba(255, 255, 255, 0); /* Transparent background */
+  background-size: contain; /* Ensure the background image scales properly */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* No background image repetition */
+  z-index: 10;
+}
+
+tr {
+  display: flex;
+  /* Responsive sizing */
+  min-width: 2px; /* Minimum size */
+  min-height: 2px; /* Minimum size */
+  max-width: 1500px; /* Maximum size */
+  max-height: 1500px; /* Maximum size */
+
+  /* Set equal width and height to ensure the button stays round */
+  width: 100%; /* Adjust the size based on viewport width */
+  height: 100%; /* Equal to width to make it a circle */
+
+  padding: 0%;
+  display: flex;
+  justify-content: space-evenly; /* Centers the container horizontally */
+  align-items: center; /* Centers the container vertically */
+  z-index: 0;
+}
+
+td {
+  display: flex;
+  /* Responsive sizing */
+  min-width: 2px; /* Minimum size */
+  min-height: 2px; /* Minimum size */
+  max-width: 150px; /* Maximum size */
+  max-height: 150px; /* Maximum size */
+
+  /* Set equal width and height to ensure the button stays round */
+  width: 100%; /* Adjust the size based on viewport width */
+  height: 100%; /* Equal to width to make it a circle */
+
+  padding: 0%;
+  display: flex;
+  justify-content: space-evenly; /* Centers the container horizontally */
+  align-items: center; /* Centers the container vertically */
+
+  z-index: 10;
 }
 
 .cell,
 .shown,
 .mine,
 .flagged {
-  width: 40px;
-  height: 40px;
   text-align: center;
-  vertical-align: middle;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 50%;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0);
-
   /* Text styling */
   color: rgb(0, 0, 0); /* Text color */
   font-weight: bold; /* Make text bold */
-  font-family: "Arial", sans-serif; /* Font family */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
   letter-spacing: 1px; /* Add space between letters */
   text-align: center;
-  font-size: 25px;
+  z-index: 10;
+  /* border: 2px solid rgba(0, 0, 0, 0.3); */
 }
 
 .cell {
@@ -85,6 +168,9 @@ h1 {
 .cell:not(.shown):not(.mine):not(.flagged):hover {
   background-color: rgba(243, 215, 10, 0.9);
   /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3); */
+  width: 108%; /* Increase size on hover */
+  height: 108%; /* Equal height to maintain round shape */
+  transition: width 0.3s ease, height 0.3s ease; /* Smooth transition */
 }
 
 .shown {
@@ -113,88 +199,110 @@ h1 {
 .status-bar,
 .start-button {
   display: flex;
-  justify-content: center; /* Center horizontally */
+  justify-content: space-between; /* Center horizontally */
   align-items: center; /* Center vertically */
-  gap: 10px; /* Space between the boxes */
-  padding: 0px;
+  gap: auto; /* Space between the boxes */
+  padding: 1%;
+  margin-bottom: 2%;
   background-color: transparent;
   /* background-color: #ffffff; */
-  border-radius: 0px;
-  width: 700px; /* Full width */
-  margin-bottom: 10px;
+  border-radius: 50%;
+  width: 70%; /* Full width */
+  z-index: 10;
 }
 
 .status-bar-2 {
   display: flex;
-  justify-content: center; /* Center horizontally */
+  justify-content: space-between; /* Center horizontally */
   align-items: center; /* Center vertically */
-  gap: 10px; /* Space between the boxes */
-  padding: 0px;
+  gap: auto; /* Space between the boxes */
+  padding: 1%;
+  margin-bottom: 2%;
   background-color: transparent;
-  position: flex; /* Fix the position relative to the viewport */
-  top: 850px; /* Adjust the distance from the top of the screen */
-  left: 0; /* Align with the left side */
-  width: 100%; /* Make it take the full width of the viewport */
-  z-index: 1000; /* Ensure it's on top of other elements */
-  background-color: transparent;
+  border-radius: 50%;
+  width: 70%; /* Full width */
+  z-index: 10;
 }
 
 .button-class {
   background-color: #ffffff;
-  padding: 7px;
   border: 2px solid rgb(241, 215, 10); /* Added "solid" to specify the border style */
-  border-radius: 20px;
-  height: 50px;
-  width: 100px; /* Reduce width so they fit nicely in one line */
+  border-radius: 50%; /* Ensures the button remains circular */
+
+  /* Responsive sizing */
+  min-width: 20px; /* Minimum size */
+  min-height: 20px; /* Minimum size */
+  max-width: 150px; /* Maximum size */
+  max-height: 150px; /* Maximum size */
+
+  /* Set equal width and height to ensure the button stays round */
+  width: 10vw; /* Adjust the size based on viewport width */
+  height: 10vw; /* Equal to width to make it a circle */
+
   text-align: center;
+  display: flex; /* Flexbox to center the text/content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  z-index: 10;
 
   /* Text styling */
   color: rgb(0, 0, 0); /* Text color */
   font-weight: bold; /* Make text bold */
-  font-family: "Arial", sans-serif; /* Font family */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
   letter-spacing: 1px; /* Add space between letters */
-  text-align: center;
-  font-size: 18px;
+  font-size: calc(
+    0.5vw + 10px
+  ); /* Dynamically adjust font size based on button size */
+}
+
+.button-class:hover {
+  width: 12vw; /* Increase size on hover */
+  height: 12vw; /* Equal height to maintain round shape */
+  transition: width 0.3s ease, height 0.3s ease; /* Smooth transition */
+  background-color: #fbdc42;
+  z-index: 11;
 }
 
 button {
   background-color: #ffffff;
   padding: 7px;
-  border: 2px transparent; /* Added "solid" to specify the border style */
-  border-radius: 20px;
-  height: 50px;
-  width: 100px; /* Reduce width so they fit nicely in one line */
+  border: 2px solid rgb(86, 182, 197); /* Added "solid" to specify the border style */
+  border-radius: 25px; /* This creates the round shape */
+
+  /* Responsive sizing */
+  width: auto;
+  height: auto;
+  min-width: 20px; /* Minimum size */
+  min-height: 60px; /* Minimum size */
+  max-width: 150px; /* Maximum size */
+  max-height: 150px; /* Maximum size */
+
+  /* Adjust width and height based on viewport size */
+  width: 30%; /* 10% of the viewport width */
+  height: 10%; /* 10% of the viewport width */
+
   text-align: center;
+  display: flex; /* Flexbox to center the text/content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  z-index: 10;
 
   /* Text styling */
   color: rgb(0, 0, 0); /* Text color */
   font-weight: bold; /* Make text bold */
-  font-family: "Arial", sans-serif; /* Font family */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow to the text */
   letter-spacing: 1px; /* Add space between letters */
   text-align: center;
-  font-size: 18px;
-}
-
-.button-class:hover {
-  background-color: #fbdc42;
 }
 
 footer {
+  margin: 20;
+  padding: 20;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  gap: 10px; /* Space between the buttons */
-  padding: 10px;
+  flex-direction: column;
+  justify-content: center; /* Centers the container horizontally */
+  align-items: center; /* Centers the container vertically */
   background-color: transparent;
-  border-radius: 15px;
-  width: 100%;
-  position: fixed; /* Fixed position relative to the viewport */
-  bottom: 20px; /* Adjust the distance from the top of the screen */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Center the element based on its width */
-  z-index: 1000; /* Make sure it's on top of other elements */
   color: rgb(243, 215, 10); /* Text color */
-  font-family: "Arial", sans-serif; /* Font family */
+  z-index: 10;
 }
